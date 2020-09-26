@@ -1,4 +1,3 @@
-```{r}
 library(tidyverse)
 library(stringr)
 library(rstanarm)
@@ -28,9 +27,7 @@ for(i in 9:20){
   
 }
 
-```
 
-```{r}
 #screen out data at 13 o'clock
 i<-1999
 repeat { 
@@ -40,10 +37,7 @@ repeat {
   {break}
 }
 
-```
 
-
-```{r}
 mr1999$TIDE <- NA
 n <- 20
 for (i in 1:n){
@@ -62,11 +56,11 @@ for (i in 1:n){
 
 
 MRC<-MRC[c(1,2,3,13,14)]
-```
 
-```{r}
-#clean up abnormal data
+
+
+#clean up abnormal data.
 MRC$ATMP[which(MRC$ATMP>=100)]=NA
 MRC$WTMP[which(MRC$WTMP>=100)]=NA
 MRC=na.omit(MRC)
-```
+
