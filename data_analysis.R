@@ -59,7 +59,7 @@ fore=predict(fit)
 ts.plot(atmpseries, fore$pred, col=c(1,2,4,4), lty=c(1,1,2,2))
 ur.df(atmpseries)
 #Value of test-statistic is: -0.8381
-#<5%, we can consider the series stable
+#<5%, we can consider the series stable.
 
 
 
