@@ -197,6 +197,6 @@ The value of the test statistic is -0.8381 < 5%, which refers the series is stab
 We can draw the conclusion that there is no obvious evidence of global warming.   
 
 ## My conlusions
-Through exploratory research and time series analysis, there is no conclusive evidence of global warming.
+Through exploratory research and time series analysis, there is no conclusive evidence of global warming in the data.
 
 
