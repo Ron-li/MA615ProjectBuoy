@@ -30,30 +30,6 @@ for(i in 9:20){
 
 ```
 
-
-```{r}
-#use loops to get rid of the excess columns
-mr1999$TIDE <- NA
-n <- length(urls)
-for (i in 1:n){
-  file <- get(filenames[i])
-  colnames(file)[1] <-"YYYY"
-  if(ncol(file) == 18){
-    file <- subset(file, select = -mm )
-  }
-  if(i == 1){
-    MR <- file
-  }else{
-    MR <- rbind.data.frame(MR, file)
-  }
-  
-}
-
-
-```
-
-MR1 <- MR
-
 ```{r}
 #screen out data at 13 o'clock
 i<-1999
