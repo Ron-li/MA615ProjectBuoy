@@ -17,7 +17,7 @@ First, I use R to clean and select the raw data. Since temperature is the most i
 Secondly, I use R to analysis the data. I do some exploratory research to get familiar with this data，but there is no obvious trend. So I use the ARIMA model in time series to analysis the data. The function auto.arima() helps me to find appropriate peremeters rapidly. After I test the model, I can draw the conclusion.  
 
 ## How I organized the work  
-Part1: Precessing the data. In the Raw_data.R, I put the code about processing the raw data in it.  
+Part1: Processing the data. In the Raw_data.R, I put the code about processing the raw data in it.  
 Part2: Data analysis. The data_analysis.R includes the exploratory research and time series analysis.  
 
 ### Part1: Processing raw data  
@@ -197,6 +197,6 @@ The value of the test statistic is -0.8381 < 5%, which refers the series is stab
 We can draw the conclusion that there is no obvious evidence of global warming.   
 
 ## My conlusions
-There is no conclusive evidence of global warming in this data.
+Through exploratory research and time series analysis, there is no conclusive evidence of global warming.
 
 
