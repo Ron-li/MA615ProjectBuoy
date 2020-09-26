@@ -1,3 +1,3 @@
 # MA615ProjectBuoy
 
-Open the report in [PDF](BuoyReport.pdf).
+Open the report in [PDF](BuoyReport.pdf)
