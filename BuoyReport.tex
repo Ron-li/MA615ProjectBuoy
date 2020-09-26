@@ -1,0 +1,537 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={BuoyReport},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{BuoyReport}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{rong-li-id-u73933267}{%
+\paragraph{Rong Li, id U73933267}\label{rong-li-id-u73933267}}
+
+\hypertarget{understanding-of-the-question}{%
+\subsection{Understanding of the
+question}\label{understanding-of-the-question}}
+
+We need to analysis 20-years of data collected by a single weather buoy
+in the NOAA National Data Buoy Center. The raw data concludes date, wind
+direction, wave height, air temperature(ATMP), water temperature(WTMP),
+dew point and so on. What we should do is mining the information from
+this data and find out whether there is an evidence of global warming.
+
+\hypertarget{my-approach}{%
+\subsection{My approach}\label{my-approach}}
+
+First, I use R to clean and select the raw data. Since temperature is
+the most important signature of globle warming, I include the air
+temperature(ATMP) and water temprature(WTMP) at first. Then I consider
+which of the other columns related to temperature. Obviously, the
+seasonal change shouldn't be neglected. So the dates are include, too.\\
+Secondly, I use R to analysis the data. I do some exploratory research
+to get familiar with this data，but there is no obvious trend. So I use
+the ARIMA model in time series to analysis the data. The function
+auto.arima() helps me to find appropriate peremeters rapidly. After I
+test the model, I can draw the conclusion.
+
+\hypertarget{how-i-organized-the-work}{%
+\subsection{How I organized the work}\label{how-i-organized-the-work}}
+
+Part1: Processing the data. In the Raw\_data.R, I put the code about
+processing the raw data in it.\\
+Part2: Data analysis. The data\_analysis.R includes the exploratory
+research and time series analysis.
+
+\hypertarget{part1-processing-raw-data}{%
+\subsubsection{Part1: Processing raw
+data}\label{part1-processing-raw-data}}
+
+In this part, I access to the data of 1999-2018 online. Then I select
+ATMP, WTMP, date, and clean up the abnormal data. Finally I put the
+annual data together, turn them into a dataframe which I will use later.
+
+\hypertarget{the-packages-i-use}{%
+\paragraph{The packages I use:}\label{the-packages-i-use}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching packages ----------------------------------------- tidyverse 1.3.0 --
+\end{verbatim}
+
+\begin{verbatim}
+## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.3     v dplyr   1.0.2
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.5.0
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts -------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(stringr)}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{library}\NormalTok{(lubridate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'lubridate'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     date, intersect, setdiff, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tseries)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'quantmod':
+##   method            from
+##   as.zoo.data.frame zoo
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(forecast)}
+\KeywordTok{library}\NormalTok{(urca)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{download-the-data-of-1999-2018-online-and-save-them-as-mr1999-mr2018.-change-some-files-column-names-to-keep-consistent.}{%
+\paragraph{Download the data of 1999-2018 online and save them as
+``mr1999-mr2018''. Change some files' column names to keep
+consistent.}\label{download-the-data-of-1999-2018-online-and-save-them-as-mr1999-mr2018.-change-some-files-column-names-to-keep-consistent.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url_}\DecValTok{1}\NormalTok{ <-}\StringTok{ "http://www.ndbc.noaa.gov/view_text_file.php?filename=mlrf1h"}
+\NormalTok{url_}\DecValTok{2}\NormalTok{ <-}\StringTok{ ".txt.gz&dir=data/historical/stdmet/"}
+\NormalTok{years <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1999}\OperatorTok{:}\DecValTok{2018}\NormalTok{)}
+\NormalTok{urls <-}\StringTok{ }\KeywordTok{str_c}\NormalTok{(url_}\DecValTok{1}\NormalTok{, years, url_}\DecValTok{2}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)}
+\NormalTok{filenames <-}\StringTok{ }\KeywordTok{str_c}\NormalTok{(}\StringTok{"mr"}\NormalTok{, years, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)}
+
+
+\CommentTok{# Year 1999 - 2006}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{8}\NormalTok{)\{}
+  \KeywordTok{suppressMessages}\NormalTok{(}
+    \CommentTok{# Fill any missing values with NA:}
+    \KeywordTok{assign}\NormalTok{(filenames[i], }\KeywordTok{read.table}\NormalTok{(urls[i], }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{fill =} \OtherTok{TRUE}\NormalTok{))}
+\NormalTok{  )}
+  
+\NormalTok{\}}
+\CommentTok{# Year 2007 - 2018}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{9}\OperatorTok{:}\DecValTok{20}\NormalTok{)\{}
+  \KeywordTok{suppressMessages}\NormalTok{(}
+    \CommentTok{# Fill any missing values with NA and use the same column names as year 2006}
+    \KeywordTok{assign}\NormalTok{(filenames[i], }\KeywordTok{read.table}\NormalTok{(urls[i], }\DataTypeTok{header =} \OtherTok{FALSE}\NormalTok{, }
+                                    \DataTypeTok{fill =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{col.names =} \KeywordTok{colnames}\NormalTok{(mr2006))),}
+\NormalTok{  )}
+  
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{screen-out-data-at-13-oclock.}{%
+\paragraph{Screen out data at 13
+o'clock.}\label{screen-out-data-at-13-oclock.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{i<-}\DecValTok{1999}
+\ControlFlowTok{repeat}\NormalTok{ \{ }
+  \KeywordTok{assign}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"mr"}\NormalTok{,}\KeywordTok{as.character}\NormalTok{(i),}\DataTypeTok{sep=}\StringTok{""}\NormalTok{),}\KeywordTok{get}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"mr"}\NormalTok{,}\KeywordTok{as.character}\NormalTok{(i),}\DataTypeTok{sep=}\StringTok{""}\NormalTok{))[}\KeywordTok{which}\NormalTok{(}\KeywordTok{get}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"mr"}\NormalTok{,}\KeywordTok{as.character}\NormalTok{(i),}\DataTypeTok{sep=}\StringTok{""}\NormalTok{))}\OperatorTok{$}\NormalTok{hh }\OperatorTok{==}\StringTok{ }\DecValTok{13}\NormalTok{), ])}
+\NormalTok{  i=i}\OperatorTok{+}\DecValTok{1}
+  \ControlFlowTok{if}\NormalTok{(i}\OperatorTok{>}\DecValTok{2018}\NormalTok{)}
+\NormalTok{  \{}\ControlFlowTok{break}\NormalTok{\}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{put-the-data-together-into-a-dataframe-called-mrc-and-select-yyyy-mm-dd-atmp-wtmp.}{%
+\paragraph{Put the data together into a dataframe called MRC and select
+``YYYY'', ``MM'', ``DD'', ``ATMP'',
+``WTMP''.}\label{put-the-data-together-into-a-dataframe-called-mrc-and-select-yyyy-mm-dd-atmp-wtmp.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mr1999}\OperatorTok{$}\NormalTok{TIDE <-}\StringTok{ }\OtherTok{NA}
+\NormalTok{n <-}\StringTok{ }\DecValTok{20}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n)\{}
+\NormalTok{  file <-}\StringTok{ }\KeywordTok{get}\NormalTok{(filenames[i])}
+  \KeywordTok{colnames}\NormalTok{(file)[}\DecValTok{1}\NormalTok{] <-}\StringTok{"YYYY"}
+  \ControlFlowTok{if}\NormalTok{(}\KeywordTok{ncol}\NormalTok{(file) }\OperatorTok{==}\StringTok{ }\DecValTok{18}\NormalTok{)\{}
+\NormalTok{    file <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(file, }\DataTypeTok{select =} \OperatorTok{-}\NormalTok{mm )}
+\NormalTok{  \}}
+  \ControlFlowTok{if}\NormalTok{(i }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{)\{}
+\NormalTok{    MRC <-}\StringTok{ }\NormalTok{file}
+\NormalTok{  \}}\ControlFlowTok{else}\NormalTok{\{}
+\NormalTok{    MRC <-}\StringTok{ }\KeywordTok{rbind.data.frame}\NormalTok{(MRC, file)}
+\NormalTok{  \}}
+  
+\NormalTok{\}}
+
+\NormalTok{MRC<-MRC[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{13}\NormalTok{,}\DecValTok{14}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{delete-the-abnormal-data.}{%
+\paragraph{Delete the abnormal data.}\label{delete-the-abnormal-data.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{MRC}\OperatorTok{$}\NormalTok{ATMP[}\KeywordTok{which}\NormalTok{(MRC}\OperatorTok{$}\NormalTok{ATMP}\OperatorTok{>=}\DecValTok{100}\NormalTok{)]=}\OtherTok{NA}
+\NormalTok{MRC}\OperatorTok{$}\NormalTok{WTMP[}\KeywordTok{which}\NormalTok{(MRC}\OperatorTok{$}\NormalTok{WTMP}\OperatorTok{>=}\DecValTok{100}\NormalTok{)]=}\OtherTok{NA}
+\NormalTok{MRC=}\KeywordTok{na.omit}\NormalTok{(MRC)}
+\end{Highlighting}
+\end{Shaded}
+
+At the end of the part, we have obtained a dataframe called MRC which we
+can use later.
+
+\hypertarget{part2-data-analysis}{%
+\subsubsection{Part2: Data analysis}\label{part2-data-analysis}}
+
+In this part, I use MRC to further my research. I do some exploratory
+research such as ploting the boxplot of ATMP versus year and the boxplot
+of WTMP versus year to get a general understanding of the data. I also
+go deeper in it and change the data into time series. After testing the
+ARIMA model I use, I draw a conclusion that there is no obvious evidence
+of global warming.
+
+\hypertarget{boxplot}{%
+\paragraph{Boxplot}\label{boxplot}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{MRC}\OperatorTok{$}\NormalTok{factor <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(MRC}\OperatorTok{$}\NormalTok{YYYY)}
+
+\CommentTok{#Plot the boxplot of ATMP versus Year}
+\KeywordTok{ggplot}\NormalTok{(MRC, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ factor, }\DataTypeTok{y =}\NormalTok{ ATMP)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{alpha=}\FloatTok{0.7}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{name =} \StringTok{"ATMP"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{name =} \StringTok{"YEAR"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Boxplot of ATMP"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{BuoyReport_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Plot the boxplot of WTMP versus Year}
+\KeywordTok{ggplot}\NormalTok{(MRC, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ factor, }\DataTypeTok{y =}\NormalTok{ WTMP)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{alpha=}\FloatTok{0.7}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{name =} \StringTok{"WTMP"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{name =} \StringTok{"YEAR"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Boxplot of WTMP"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{BuoyReport_files/figure-latex/unnamed-chunk-6-2.pdf}
+
+From the picture above, we can't draw conclusions because there is no
+obvious trend. So we need to go deeper.
+
+\hypertarget{calculate-the-monthly-average-of-atmpwtmp-every-year-and-form-time-series}{%
+\paragraph{Calculate the monthly average of ATMP\&WTMP every year and
+form time
+series}\label{calculate-the-monthly-average-of-atmpwtmp-every-year-and-form-time-series}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ameans <-}\StringTok{ }\KeywordTok{array}\NormalTok{()}
+\NormalTok{wmeans <-}\StringTok{ }\KeywordTok{array}\NormalTok{()}
+\NormalTok{z <-}\StringTok{ }\DecValTok{1}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1999}\OperatorTok{:}\DecValTok{2018}\NormalTok{)\{}
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{12}\NormalTok{)\{}
+\NormalTok{    ameans[z] <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(}\KeywordTok{subset}\NormalTok{(MRC, YYYY }\OperatorTok{==}\StringTok{ }\NormalTok{i)}\OperatorTok{$}\NormalTok{ATMP[}\KeywordTok{which}\NormalTok{(}\KeywordTok{subset}\NormalTok{(MRC, YYYY }\OperatorTok{==}\StringTok{ }\NormalTok{i)}\OperatorTok{$}\NormalTok{MM }\OperatorTok{==}\StringTok{ }\NormalTok{j)])}
+\NormalTok{    wmeans[z] <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(}\KeywordTok{subset}\NormalTok{(MRC, YYYY }\OperatorTok{==}\StringTok{ }\NormalTok{i)}\OperatorTok{$}\NormalTok{WTMP[}\KeywordTok{which}\NormalTok{(}\KeywordTok{subset}\NormalTok{(MRC, YYYY }\OperatorTok{==}\StringTok{ }\NormalTok{i)}\OperatorTok{$}\NormalTok{MM }\OperatorTok{==}\StringTok{ }\NormalTok{j)])}
+\NormalTok{    z <-}\StringTok{ }\NormalTok{z}\OperatorTok{+}\DecValTok{1}
+    \ControlFlowTok{if}\NormalTok{ (z }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{)\{  }
+      \ControlFlowTok{if}\NormalTok{ (}\KeywordTok{is.na}\NormalTok{(ameans[z}\DecValTok{-2}\NormalTok{]))\{}
+\NormalTok{        ameans[z}\DecValTok{-2}\NormalTok{] <-}\StringTok{ }\NormalTok{(ameans[z}\DecValTok{-3}\NormalTok{]}\OperatorTok{+}\NormalTok{ameans[z}\DecValTok{-1}\NormalTok{])}\OperatorTok{/}\DecValTok{2} 
+\NormalTok{      \}}
+      \ControlFlowTok{if}\NormalTok{ (}\KeywordTok{is.na}\NormalTok{(wmeans[z}\DecValTok{-2}\NormalTok{]))\{}
+\NormalTok{        wmeans[z}\DecValTok{-2}\NormalTok{] <-}\StringTok{ }\NormalTok{(wmeans[z}\DecValTok{-3}\NormalTok{]}\OperatorTok{+}\NormalTok{wmeans[z}\DecValTok{-1}\NormalTok{])}\OperatorTok{/}\DecValTok{2} 
+\NormalTok{      \}}
+\NormalTok{    \}}
+\NormalTok{  \}}
+\NormalTok{\}}
+\NormalTok{atmpseries <-}\StringTok{ }\KeywordTok{ts}\NormalTok{(ameans, }\DataTypeTok{frequency=}\DecValTok{12}\NormalTok{, }\DataTypeTok{start=}\KeywordTok{c}\NormalTok{(}\DecValTok{1999}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{wtmpseries <-}\StringTok{ }\KeywordTok{ts}\NormalTok{(wmeans, }\DataTypeTok{frequency=}\DecValTok{12}\NormalTok{, }\DataTypeTok{start=}\KeywordTok{c}\NormalTok{(}\DecValTok{1999}\NormalTok{,}\DecValTok{1}\NormalTok{)) }
+\KeywordTok{plot}\NormalTok{(atmpseries, }\DataTypeTok{main =} \StringTok{"The Time Series of ATMP"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"Date"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{BuoyReport_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(wtmpseries, }\DataTypeTok{main =} \StringTok{"The Time Series of WTMP"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"Date"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{BuoyReport_files/figure-latex/unnamed-chunk-7-2.pdf}
+The pictures indicate that there should be seasonal trend in the
+temperature. Since the two pictures are very alike which means the
+trends of ATMP and WTMP are very similar, I only need to analysis one of
+them. In this case, I choose to analysis the ATMP.
+
+\#\#\#\#Display the time series of ATMP.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tsdisplay}\NormalTok{(atmpseries)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{BuoyReport_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\hypertarget{decompose-the-time-series}{%
+\paragraph{Decompose the time series}\label{decompose-the-time-series}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dca <-}\StringTok{ }\KeywordTok{decompose}\NormalTok{(atmpseries)}
+\KeywordTok{plot}\NormalTok{(dca)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{BuoyReport_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+In the graph, the seasonal effection is apperant and the trend is
+unclear.
+
+\hypertarget{find-out-the-seasonal-trend-of-the-data.}{%
+\paragraph{Find out the seasonal trend of the
+data.}\label{find-out-the-seasonal-trend-of-the-data.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seasona<-dca}\OperatorTok{$}\NormalTok{figure}
+\KeywordTok{plot}\NormalTok{(seasona,}\DataTypeTok{type =} \StringTok{"b"}\NormalTok{,}\DataTypeTok{xaxt=}\StringTok{"n"}\NormalTok{,}\DataTypeTok{xlab =} \StringTok{""}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{BuoyReport_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\hypertarget{use-function-auto.arima-to-get-the-peremeter-of-arima-model.}{%
+\paragraph{Use function auto.arima() to get the peremeter of ARIMA
+model.}\label{use-function-auto.arima-to-get-the-peremeter-of-arima-model.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a<-}\KeywordTok{auto.arima}\NormalTok{(atmpseries)}
+\KeywordTok{print}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Series: atmpseries 
+## ARIMA(0,0,1)(2,1,0)[12] with drift 
+## 
+## Coefficients:
+##          ma1     sar1     sar2   drift
+##       0.2279  -0.5206  -0.2393  0.0019
+## s.e.  0.0636   0.0657   0.0667  0.0055
+## 
+## sigma^2 estimated as 1.941:  log likelihood=-398.99
+## AIC=807.99   AICc=808.26   BIC=825.14
+\end{verbatim}
+
+The model is ARIMA(0, 0, 1)x(2, 1, 0).
+
+\hypertarget{fit-the-model-and-plot-the-predicted.}{%
+\paragraph{Fit the model and plot the
+predicted.}\label{fit-the-model-and-plot-the-predicted.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit<-}\KeywordTok{arima}\NormalTok{(atmpseries,}\DataTypeTok{order =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{),}\DataTypeTok{seasonal =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{order=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}\DataTypeTok{period=}\DecValTok{12}\NormalTok{))}
+\KeywordTok{print}\NormalTok{(fit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## arima(x = atmpseries, order = c(0, 0, 1), seasonal = list(order = c(2, 1, 0), 
+##     period = 12))
+## 
+## Coefficients:
+##          ma1     sar1     sar2
+##       0.2286  -0.5200  -0.2386
+## s.e.  0.0635   0.0657   0.0667
+## 
+## sigma^2 estimated as 1.908:  log likelihood = -399.05,  aic = 806.11
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fore=}\KeywordTok{predict}\NormalTok{(fit)}
+\KeywordTok{ts.plot}\NormalTok{(atmpseries, fore}\OperatorTok{$}\NormalTok{pred, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{), }\DataTypeTok{lty=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{BuoyReport_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\hypertarget{test-the-model}{%
+\paragraph{Test the model}\label{test-the-model}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ur.df}\NormalTok{(atmpseries)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## ############################################################### 
+## # Augmented Dickey-Fuller Test Unit Root / Cointegration Test # 
+## ############################################################### 
+## 
+## The value of the test statistic is: -0.8381
+\end{verbatim}
+
+The value of the test statistic is -0.8381 \textless{} 5\%, which refers
+the series is stable.\\
+We can draw the conclusion that there is no obvious evidence of global
+warming.
+
+\hypertarget{my-conlusions}{%
+\subsection{My conlusions}\label{my-conlusions}}
+
+Through exploratory research and time series analysis, there is no
+conclusive evidence of global warming in the data.
+
+\hypertarget{my-reference}{%
+\subsection{My reference}\label{my-reference}}
+
+{[}data
+scource{]}\url{http://www.ndbc.noaa.gov/view_text_file.php?filename=mlrf1h1999.txt.gz\&dir=data/historical/stdmet/}\\
+{[}Methods in time
+series{]}\url{https://blog.csdn.net/jiabiao1602/article/details/43153139}\\
+{[}R
+packages{]}\url{https://cran.r-project.org/web/packages/citation/index.html}
+
+\end{document}

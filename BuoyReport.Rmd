@@ -1,6 +1,8 @@
 ---
 title: "BuoyReport"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -198,5 +200,10 @@ We can draw the conclusion that there is no obvious evidence of global warming.
 
 ## My conlusions
 Through exploratory research and time series analysis, there is no conclusive evidence of global warming in the data.
+
+## My reference  
+[data scource]<http://www.ndbc.noaa.gov/view_text_file.php?filename=mlrf1h1999.txt.gz&dir=data/historical/stdmet/>  
+[Methods in time series]<https://blog.csdn.net/jiabiao1602/article/details/43153139>  
+[R packages]<https://cran.r-project.org/web/packages/citation/index.html>
 
 
